@@ -7,6 +7,7 @@ from w3lib.html import remove_tags
 
 from ..items import PernikItem
 
+
 class PernikSpider(scrapy.Spider):
 	name = 'pernik'
 	start_urls = ['http://pk.riosv-pernik.com/']
@@ -35,7 +36,8 @@ class PernikSpider(scrapy.Spider):
 
 		return item.load_item()
 
-	def remove_something(self, t):
+	@staticmethod
+	def remove_something(t):
 		regex1 = r'e-max.it: la strada del successo -->[\S\s]*?e-max.it: seo e posizionamento sui motori -->'
 		regex2 = r'<!--[\S\s]*?-->'
 		regex3 = r"'[\S\s]*?//-->"
